@@ -1,0 +1,26 @@
+﻿@model GameZone.Models.FaixaEtaria
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FaixaEtaria</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoDeClassificacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoDeClassificacao)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FaixaEtariaId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
