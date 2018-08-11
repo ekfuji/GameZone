@@ -22,6 +22,15 @@ namespace GameZone.Controllers
             return View(games.ToList());
         }
 
+        public PartialViewResult Listar(int pagina = 1, int registros = 5)
+        {
+            var games = db.Games.Include(g => g.FaixaEtaria).Include(g => g.Genero).Include(g => g.Plataforma).Include(g => g.Publisher);
+            var gamesPaginados = games.OrderBy(g => g.Titulo).Skip((pagina -1)* registros).Take(registros);
+            //No método Take, estamos pedindo para o Entityframework entregar apenas uma quantidade registros.
+            //No método Skip, estamos pedindo para o Entityframework pular uma quantidade registros.
+            return PartialView("_Listar", gamesPaginados.ToList());
+        }
+
         // GET: Games/Details/5
         public ActionResult Details(int? id)
         {

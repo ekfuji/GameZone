@@ -9,61 +9,27 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FaixaEtaria.TipoDeClassificacao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Genero.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Plataforma.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Publisher.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Titulo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AnoEdicao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Valor)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FaixaEtaria.TipoDeClassificacao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Genero.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Plataforma.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Publisher.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Titulo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AnoEdicao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Valor)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.GameId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.GameId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.GameId })
-        </td>
-    </tr>
+@*Html.Action("Listar")*@
+@*Html.Action("Listar", new { pagina = 2 , registros =10})*@
+
+<div id="listagemDeGames"></div>
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(configurarControles);
+
+        function configurarControles() {
+            $("#listagemDeGames").load("@Url.Action("Listar")");
+            //Consome a action e pega o resultado da action e coloca na div
+            //é renderizado no final da pagina do _Layout @*RenderSection("scripts", required: false)*@
+        }
+
+        var pagina = 1;
+        function paginar(valor) {
+            var paginaNova = pagina + valor;
+            $("#listagemDeGames").load("@Url.Action("Listar")", { pagina: paginaNova });
+
+            pagina = paginaNova;
+        }
+    </script>
 }
-
-</table>

@@ -29,6 +29,7 @@ namespace GameZone.AcessoDados
                 new Genero() { Nome = "MMOSG" },
                 new Genero() { Nome = "MOBA" },
                 new Genero() { Nome = "MMO" },
+                new Genero() { Nome = "Luta" },
             };
 
             generos.ForEach(g => contexto.Generos.Add(g));
@@ -60,6 +61,13 @@ namespace GameZone.AcessoDados
                 new Publisher() { Nome= "505 Games" },
                 new Publisher() { Nome = "LEGO" },
                 new Publisher() { Nome = "EA GAMES" },
+                new Publisher() { Nome = "Epicgames" },
+                new Publisher() { Nome = "Telltale Games" },
+                new Publisher() { Nome = "Blizzard Entertainment" },
+                new Publisher() { Nome = "Rockstar Games" },
+                new Publisher() { Nome = "Bandai Namco Entertainment" },
+
+                
             };
 
             publishers.ForEach(p => contexto.Publishers.Add(p));
@@ -93,7 +101,79 @@ namespace GameZone.AcessoDados
                     Plataforma = plataformas.FirstOrDefault(g => g.Nome == "XBOX-ONE"),
                     Publisher = publishers.FirstOrDefault(p => p.Nome == "EA GAMES"),
                     FaixaEtaria = faixasEtarias.FirstOrDefault(f => f.TipoDeClassificacao == "+16")
+                },
+
+                new Game() {
+                    Titulo = "Fortnite",
+                    AnoEdicao = 2017,
+                    Valor = 122.90m,
+                    Genero = generos.FirstOrDefault(g => g.Nome == "FPS"),
+                    Plataforma = plataformas.FirstOrDefault(g => g.Nome == "PS4"),
+                    Publisher = publishers.FirstOrDefault(p => p.Nome == "Epicgames"),
+                    FaixaEtaria = faixasEtarias.FirstOrDefault(f => f.TipoDeClassificacao == "+16")
+                },
+
+                new Game() {
+                    Titulo = "JOGO BATMAN THE TELLTALE SERIES SWITCH",
+                    AnoEdicao = 2017,
+                    Valor = 259.56m,
+                    Genero = generos.FirstOrDefault(g => g.Nome == "Ação"),
+                    Plataforma = plataformas.FirstOrDefault(g => g.Nome == "Nintendo Switch"),
+                    Publisher = publishers.FirstOrDefault(p => p.Nome == "Telltale Games"),
+                    FaixaEtaria = faixasEtarias.FirstOrDefault(f => f.TipoDeClassificacao == "+16")
+                },
+
+                new Game() {
+                    Titulo = "JOGO ASSASSINS CREED ORIGINS",
+                    AnoEdicao = 2017,
+                    Valor = 206.96m,
+                    Genero = generos.FirstOrDefault(g => g.Nome == "Ação"),
+                    Plataforma = plataformas.FirstOrDefault(g => g.Nome == "XBOX-ONE"),
+                    Publisher = publishers.FirstOrDefault(p => p.Nome == "Ubsoft"),
+                    FaixaEtaria = faixasEtarias.FirstOrDefault(f => f.TipoDeClassificacao == "+18")
+                },
+
+                new Game() {
+                    Titulo = "Red Dead Redemption II",
+                    AnoEdicao = 2018,
+                    Valor = 224.96m,
+                    Genero = generos.FirstOrDefault(g => g.Nome == "Aventura"),
+                    Plataforma = plataformas.FirstOrDefault(g => g.Nome == "PS4"),
+                    Publisher = publishers.FirstOrDefault(p => p.Nome == "Rockstar Games"),
+                    FaixaEtaria = faixasEtarias.FirstOrDefault(f => f.TipoDeClassificacao == "+18")
+                },
+
+                new Game() {
+                    Titulo = "Overwatch",
+                    AnoEdicao = 2016,
+                    Valor = 106.96m,
+                    Genero = generos.FirstOrDefault(g => g.Nome == "FPS"),
+                    Plataforma = plataformas.FirstOrDefault(g => g.Nome == "XBOX-ONE"),
+                    Publisher = publishers.FirstOrDefault(p => p.Nome == "Blizzard Entertainment"),
+                    FaixaEtaria = faixasEtarias.FirstOrDefault(f => f.TipoDeClassificacao == "+16")
+                },
+
+                new Game() {
+                    Titulo = "Dragon Ball FighterZ ",
+                    AnoEdicao = 2018,
+                    Valor = 114.99m,
+                    Genero = generos.FirstOrDefault(g => g.Nome == "Luta"),
+                    Plataforma = plataformas.FirstOrDefault(g => g.Nome == "PS4"),
+                    Publisher = publishers.FirstOrDefault(p => p.Nome == "Bandai Namco Entertainment"),
+                    FaixaEtaria = faixasEtarias.FirstOrDefault(f => f.TipoDeClassificacao == "+16")
+                },
+
+                new Game() {
+                    Titulo = "Tom Clancy's Rainbow Six Siege",
+                    AnoEdicao = 2015,
+                    Valor = 104.99m,
+                    Genero = generos.FirstOrDefault(g => g.Nome == "Ação"),
+                    Plataforma = plataformas.FirstOrDefault(g => g.Nome == "XBOX-ONE"),
+                    Publisher = publishers.FirstOrDefault(p => p.Nome == "Ubsoft"),
+                    FaixaEtaria = faixasEtarias.FirstOrDefault(f => f.TipoDeClassificacao == "+16")
                 }
+
+
 
             };
             games.ForEach(g => contexto.Games.Add(g));

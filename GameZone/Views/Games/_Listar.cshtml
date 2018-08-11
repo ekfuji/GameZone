@@ -1,0 +1,68 @@
+﻿@model IEnumerable<GameZone.Models.Game>
+
+<table class="table">
+    <tr>
+        <th>
+            Classificação
+        </th>
+        <th>
+            Gênero
+        </th>
+        <th>
+            Plataforma
+        </th>
+        <th>
+            Desenvolvedores
+        </th>
+        <th>
+            Título
+        </th>
+        <th>
+            Lançamento
+        </th>
+        <th>
+            Valor
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FaixaEtaria.TipoDeClassificacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genero.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Plataforma.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Publisher.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnoEdicao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.GameId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.GameId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.GameId })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<nav>
+    <ul class="pager">
+        <li><a href="#" onclick="paginar(-1)">Anterior</a></li>
+        <li><a href="#" onclick="paginar(1)">Próximo</a></li>
+    </ul>
+</nav>
+
